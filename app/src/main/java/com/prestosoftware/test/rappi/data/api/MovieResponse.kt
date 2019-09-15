@@ -1,7 +1,7 @@
 package com.prestosoftware.test.rappi.data.api
 
 import com.google.gson.annotations.SerializedName
-import com.prestosoftware.test.rappi.data.Movie
+import com.prestosoftware.test.rappi.data.model.Movie
 
 data class MovieResponse (
     val page: Int = 1,

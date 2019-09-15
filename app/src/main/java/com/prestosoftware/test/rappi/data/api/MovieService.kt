@@ -1,7 +1,7 @@
 package com.prestosoftware.test.rappi.data.api
 
 import androidx.lifecycle.LiveData
-import com.prestosoftware.test.rappi.data.Movie
+import com.prestosoftware.test.rappi.data.model.Movie
 import retrofit2.http.GET
 import retrofit2.http.Path
 
