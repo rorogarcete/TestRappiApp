@@ -2,15 +2,13 @@ package com.prestosoftware.test.rappi.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.prestosoftware.test.rappi.data.db.dao.MovieDao
-import com.prestosoftware.test.rappi.data.db.entity.MovieEntity
+import com.prestosoftware.test.rappi.model.Movie
 
 /**
  * Main database description.
  */
 @Database(
-    entities = [
-        MovieEntity::class],
+    entities = [Movie::class],
     version = 1,
     exportSchema = false
 )
