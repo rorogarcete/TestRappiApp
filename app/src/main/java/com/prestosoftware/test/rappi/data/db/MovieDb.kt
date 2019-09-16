@@ -2,7 +2,7 @@ package com.prestosoftware.test.rappi.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.prestosoftware.test.rappi.model.Movie
+import com.prestosoftware.test.rappi.models.entity.Movie
 
 /**
  * Main database description.
