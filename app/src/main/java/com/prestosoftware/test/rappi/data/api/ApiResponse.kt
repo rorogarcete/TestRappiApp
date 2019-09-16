@@ -2,92 +2,51 @@ package com.prestosoftware.test.rappi.data.api
 
 import retrofit2.Response
 import timber.log.Timber
-import java.util.regex.Pattern
+import java.io.IOException
 
-/**
- * Common class used by API responses.
- * @param <T> the type of the response object
-</T> */
-@Suppress("unused") // T is used in extending classes
-sealed class ApiResponse<T> {
-    companion object {
-        fun <T> create(error: Throwable): ApiErrorResponse<T> {
-            return ApiErrorResponse(error.message ?: "unknown error")
-        }
+@Suppress("MemberVisibilityCanBePrivate")
+class ApiResponse<T> {
+    val code: Int
+    val body: T?
+    val message: String?
 
-        fun <T> create(response: Response<T>): ApiResponse<T> {
-            return if (response.isSuccessful) {
-                val body = response.body()
-                if (body == null || response.code() == 204) {
-                    ApiEmptyResponse()
-                } else {
-                    ApiSuccessResponse(
-                        body = body,
-                        linkHeader = response.headers()?.get("link")
-                    )
-                }
-            } else {
-                val msg = response.errorBody()?.string()
-                val errorMsg = if (msg.isNullOrEmpty()) {
-                    response.message()
-                } else {
-                    msg
-                }
-                ApiErrorResponse(errorMsg ?: "unknown error")
-            }
-        }
+    val isSuccessful: Boolean
+        get() = code in 200..300
+    val isFailure: Boolean
+
+    constructor(error: Throwable) {
+        this.code = 500
+        this.body = null
+        this.message = error.message
+        this.isFailure = true
     }
-}
 
-/**
- * separate class for HTTP 204 responses so that we can make ApiSuccessResponse's body non-null.
- */
-class ApiEmptyResponse<T> : ApiResponse<T>()
+    constructor(response: Response<T>) {
+        this.code = response.code()
 
-data class ApiSuccessResponse<T>(
-    val body: T,
-    val links: Map<String, String>
-) : ApiResponse<T>() {
-    constructor(body: T, linkHeader: String?) : this(
-        body = body,
-        links = linkHeader?.extractLinks() ?: emptyMap()
-    )
-
-    val nextPage: Int? by lazy(LazyThreadSafetyMode.NONE) {
-        links[NEXT_LINK]?.let { next ->
-            val matcher = PAGE_PATTERN.matcher(next)
-            if (!matcher.find() || matcher.groupCount() != 1) {
-                null
-            } else {
+        if (response.isSuccessful) {
+            this.body = response.body()
+            this.message = null
+            this.isFailure = false
+        } else {
+            var errorMessage: String? = null
+            response.errorBody()?.let {
                 try {
-                    Integer.parseInt(matcher.group(1))
-                } catch (ex: NumberFormatException) {
-                    Timber.w("cannot parse next page from %s", next)
-                    null
+                    errorMessage = response.errorBody()!!.string()
+                } catch (ignored: IOException) {
+                    Timber.e(ignored, "error while parsing response")
                 }
             }
-        }
-    }
 
-    companion object {
-        private val LINK_PATTERN = Pattern.compile("<([^>]*)>[\\s]*;[\\s]*rel=\"([a-zA-Z0-9]+)\"")
-        private val PAGE_PATTERN = Pattern.compile("\\bpage=(\\d+)")
-        private const val NEXT_LINK = "next"
-
-        private fun String.extractLinks(): Map<String, String> {
-            val links = mutableMapOf<String, String>()
-            val matcher = LINK_PATTERN.matcher(this)
-
-            while (matcher.find()) {
-                val count = matcher.groupCount()
-                if (count == 2) {
-                    links[matcher.group(2)] = matcher.group(1)
+            errorMessage?.apply {
+                if (isNullOrEmpty() || trim { it <= ' ' }.isEmpty()) {
+                    errorMessage = response.message()
                 }
             }
-            return links
-        }
 
+            this.body = null
+            this.message = errorMessage
+            this.isFailure = true
+        }
     }
 }
-
-data class ApiErrorResponse<T>(val errorMessage: String) : ApiResponse<T>()
