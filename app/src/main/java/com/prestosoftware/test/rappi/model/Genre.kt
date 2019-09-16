@@ -1,4 +1,4 @@
-package com.prestosoftware.test.rappi.data.model
+package com.prestosoftware.test.rappi.model
 
 data class Genre (
     val id: Long,
