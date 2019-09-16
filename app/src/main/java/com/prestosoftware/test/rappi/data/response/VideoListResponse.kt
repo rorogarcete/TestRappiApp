@@ -1,4 +1,4 @@
-package com.prestosoftware.test.rappi.models.network
+package com.prestosoftware.test.rappi.data.response
 
 import com.prestosoftware.test.rappi.models.Video
 
