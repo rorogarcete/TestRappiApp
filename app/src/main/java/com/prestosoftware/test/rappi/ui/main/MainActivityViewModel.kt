@@ -40,12 +40,12 @@ class MainActivityViewModel @Inject
     }
   }
 
-  fun getMovieListValues() = moviePopularListLiveData.value
-  fun postMoviePage(page: Int) = moviePopularLiveData.postValue(page)
+  fun getMoviePopularListValues() = moviePopularListLiveData.value
+  fun postMoviePopularPage(page: Int) = moviePopularLiveData.postValue(page)
 
-  fun getTvListValues() = movieTopListLiveData.value
-  fun postTvPage(page: Int) = movieTopLiveData.postValue(page)
+  fun getMovieTopListValues() = movieTopListLiveData.value
+  fun postMovieTopPage(page: Int) = movieTopLiveData.postValue(page)
 
-  fun getPeopleValues() = movieUpcomingListLiveData.value
-  fun postPeoplePage(page: Int) = movieUpcomingLiveData.postValue(page)
+  fun getMovieUpcomingListValues() = movieUpcomingListLiveData.value
+  fun postMovieUpcomingPage(page: Int) = movieUpcomingLiveData.postValue(page)
 }

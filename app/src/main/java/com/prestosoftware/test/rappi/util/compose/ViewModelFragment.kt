@@ -18,7 +18,7 @@ open class ViewModelFragment : Fragment() {
   lateinit var viewModelFactory: ViewModelProvider.Factory
 
   override fun onAttach(context: Context) {
-    //AndroidSupportInjection.inject(this)
+    AndroidSupportInjection.inject(this)
     super.onAttach(context)
   }
 

@@ -3,6 +3,7 @@ package com.prestosoftware.test.rappi.di
 import android.app.Application
 import androidx.annotation.NonNull
 import androidx.room.Room
+import com.prestosoftware.test.rappi.TestRappiApplication
 import com.prestosoftware.test.rappi.data.db.MovieDao
 import com.prestosoftware.test.rappi.data.db.MovieDb
 import dagger.Module
@@ -16,7 +17,7 @@ class PersistenceModule {
   @Singleton
   fun provideDatabase(@NonNull application: Application): MovieDb {
     return Room
-      .databaseBuilder(application, MovieDb::class.java, "movies")
+      .databaseBuilder(application, MovieDb::class.java, TestRappiApplication.BD_NAME)
       .allowMainThreadQueries()
       .build()
   }

@@ -21,10 +21,10 @@
       android:icon="@drawable/ic_star_white_24dp"
       android:title="@string/menu_upcoming"
       app:showAsAction="ifRoom" />
-  <item
-      android:id="@+id/ic_movie_search"
-      android:enabled="true"
-      android:icon="@drawable/ic_star_white_24dp"
-      android:title="@string/menu_search"
-      app:showAsAction="ifRoom" />
+  <!--<item-->
+      <!--android:id="@+id/ic_movie_search"-->
+      <!--android:enabled="true"-->
+      <!--android:icon="@drawable/ic_star_white_24dp"-->
+      <!--android:title="@string/menu_search"-->
+      <!--app:showAsAction="ifRoom" />-->
 </menu>

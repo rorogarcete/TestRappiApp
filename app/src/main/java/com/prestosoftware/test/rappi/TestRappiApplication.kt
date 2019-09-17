@@ -9,6 +9,7 @@ class TestRappiApplication: DaggerApplication() {
 
     companion object {
         const val API_KEY = "2805b177bde136e05a6502ec65f855f0"
+        const val API_LG = "en-US"
         const val API_URL = "https://api.themoviedb.org/3/"
         const val BD_NAME = "movies"
 

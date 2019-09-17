@@ -12,7 +12,7 @@ import com.prestosoftware.test.rappi.ui.movie.topRated.MovieTopListAdapter
 import com.prestosoftware.test.rappi.util.extension.bindResource
 import com.prestosoftware.test.rappi.util.extension.visible
 
-@BindingAdapter("adapterMovieList")
+@BindingAdapter("adapterMoviePopularList")
 fun bindAdapterMoviePopularList(view: RecyclerView, resource: Resource<List<Movie>>?) {
   view.bindResource(resource) {
     if (resource != null) {
@@ -22,7 +22,7 @@ fun bindAdapterMoviePopularList(view: RecyclerView, resource: Resource<List<Movi
   }
 }
 
-@BindingAdapter("adapterMovieList")
+@BindingAdapter("adapterMovieTopList")
 fun bindAdapterMovieTopList(view: RecyclerView, resource: Resource<List<Movie>>?) {
     view.bindResource(resource) {
         if (resource != null) {

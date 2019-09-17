@@ -38,7 +38,7 @@ class NetworkModule {
   fun provideRetrofit(@NonNull okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
       .client(okHttpClient)
-      .baseUrl("https://api.themoviedb.org/3/")
+      .baseUrl(TestRappiApplication.API_URL)
       .addConverterFactory(GsonConverterFactory.create())
       .addCallAdapterFactory(LiveDataCallAdapterFactory())
       .build()
