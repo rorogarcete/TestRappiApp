@@ -9,14 +9,11 @@ import com.prestosoftware.test.rappi.models.entity.Movie
  */
 @Dao
 interface MovieDao {
-    @Query("SELECT * FROM MOVIE WHERE id = :id_")
-    fun getMovie(id_: Int): Movie
+    @Query("SELECT * FROM MOVIE WHERE id = :id")
+    fun getMovie(id: Int): Movie
 
-    @Query("SELECT * FROM Movie WHERE page = :page_")
-    fun getMovieList(page_: Int): LiveData<List<Movie>>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(movie: Movie)
+    @Query("SELECT * FROM Movie WHERE page = :page")
+    fun getMovieList(page: Int): LiveData<List<Movie>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(movies: List<Movie>)

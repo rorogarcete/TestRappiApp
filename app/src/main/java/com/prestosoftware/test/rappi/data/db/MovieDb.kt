@@ -2,18 +2,29 @@ package com.prestosoftware.test.rappi.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.prestosoftware.test.rappi.models.entity.Movie
+import com.prestosoftware.test.rappi.util.IntegerListConverter
+import com.prestosoftware.test.rappi.util.KeywordListConverter
+import com.prestosoftware.test.rappi.util.StringListConverter
+import com.prestosoftware.test.rappi.util.VideoListConverter
 
 /**
- * Main database description.
+ * Movie database description.
  */
 @Database(
     entities = [Movie::class],
     version = 1,
     exportSchema = false
 )
+@TypeConverters(
+    value = [
+        (StringListConverter::class),
+        (IntegerListConverter::class),
+        (KeywordListConverter::class),
+        (VideoListConverter::class)
+    ]
+)
 abstract class MovieDb : RoomDatabase() {
-
     abstract fun movieDao(): MovieDao
-
 }
