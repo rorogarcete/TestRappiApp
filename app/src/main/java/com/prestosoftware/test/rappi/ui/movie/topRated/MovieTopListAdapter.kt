@@ -23,7 +23,7 @@ class MovieTopListAdapter(private val delegate: MovieTopListViewHolder.Delegate)
   }
 
   override fun layout(sectionRow: SectionRow): Int {
-    return R.layout.item_poster
+    return R.layout.item_movie_top
   }
 
   override fun viewHolder(layout: Int, view: View): BaseViewHolder {

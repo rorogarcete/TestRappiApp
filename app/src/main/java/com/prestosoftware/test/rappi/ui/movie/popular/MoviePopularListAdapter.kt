@@ -23,7 +23,7 @@ class MoviePopularListAdapter(private val delegate: MoviePopularListViewHolder.D
   }
 
   override fun layout(sectionRow: SectionRow): Int {
-    return R.layout.item_poster
+    return R.layout.item_movie_popular
   }
 
   override fun viewHolder(layout: Int, view: View): BaseViewHolder {

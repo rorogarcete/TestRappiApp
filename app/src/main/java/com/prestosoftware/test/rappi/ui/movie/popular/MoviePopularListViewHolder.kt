@@ -7,7 +7,7 @@ import com.github.florent37.glidepalette.GlidePalette
 import com.prestosoftware.test.rappi.data.api.Api
 import com.prestosoftware.test.rappi.models.entity.Movie
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
-import kotlinx.android.synthetic.main.item_poster.view.*
+import kotlinx.android.synthetic.main.item_movie_popular.view.*
 
 class MoviePopularListViewHolder(
   val view: View,
@@ -30,15 +30,15 @@ class MoviePopularListViewHolder(
 
   private fun drawItem() {
     itemView.run {
-      item_poster_title.text = movie.title
+      item_mp_title.text = movie.title
       movie.poster_path?.let {
         Glide.with(context)
           .load(Api.getPosterPath(it))
           .listener(GlidePalette.with(Api.getPosterPath(it))
             .use(BitmapPalette.Profile.VIBRANT)
-            .intoBackground(item_poster_palette)
+            .intoBackground(item_mp_palette)
             .crossfade(true))
-          .into(item_poster_post)
+          .into(item_mp_post)
       }
     }
   }

@@ -7,23 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.prestosoftware.test.rappi.R
-import com.prestosoftware.test.rappi.databinding.MainFragmentMovieBinding
+import com.prestosoftware.test.rappi.databinding.FragmentTopMovieBinding
 import com.prestosoftware.test.rappi.models.Status
 import com.prestosoftware.test.rappi.models.entity.Movie
 import com.prestosoftware.test.rappi.ui.main.MainActivityViewModel
 import com.prestosoftware.test.rappi.ui.movie.detail.MovieDetailActivity
 import com.prestosoftware.test.rappi.util.compose.ViewModelFragment
 import com.skydoves.baserecyclerviewadapter.RecyclerViewPaginator
-import kotlinx.android.synthetic.main.main_fragment_movie.*
+import kotlinx.android.synthetic.main.fragment_popular_movie.*
 
-@Suppress("SpellCheckingInspection")
+//@Suppress("SpellCheckingInspection")
 class MovieTopListFragment : ViewModelFragment(), MovieTopListViewHolder.Delegate {
 
   private val viewModel by viewModel<MainActivityViewModel>()
-  private lateinit var binding: MainFragmentMovieBinding
+  private lateinit var binding: FragmentTopMovieBinding
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    binding = binding(inflater, R.layout.main_fragment_movie, container)
+    binding = binding(inflater, R.layout.fragment_top_movie, container)
     binding.viewModel = viewModel
     binding.lifecycleOwner = this
     return binding.root
@@ -44,15 +44,15 @@ class MovieTopListFragment : ViewModelFragment(), MovieTopListViewHolder.Delegat
     recyclerView.layoutManager = GridLayoutManager(context, 2)
     val paginator = RecyclerViewPaginator(
       recyclerView = recyclerView,
-      isLoading = { viewModel.getMovieListValues()?.status == Status.LOADING },
+      isLoading = { viewModel.getMovieTopListValues()?.status == Status.LOADING },
       loadMore = { loadMore(it) },
-      onLast = { viewModel.getMovieListValues()?.onLastPage!! }
+      onLast = { viewModel.getMovieTopListValues()?.onLastPage!! }
     )
     paginator.currentPage = 1
   }
 
   private fun loadMore(page: Int) {
-    viewModel.postMoviePage(page)
+    viewModel.postMovieTopPage(page)
   }
 
   override fun onItemClick(movie: Movie) {
