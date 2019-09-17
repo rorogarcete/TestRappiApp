@@ -3,16 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-//apply plugin: 'jacoco'
-
-apply plugin: 'kotlin-allopen'
-//apply plugin: 'androidx.navigation.safeargs.kotlin'
-
-allOpen {
-    // allows mocking for classes w/o directly opening them for release builds
-    annotation 'com.android.example.github.testing.OpenClass'
-}
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -23,18 +13,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    androidExtensions {
-        experimental = true
-    }
-    dataBinding {
-        enabled = true
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -42,30 +20,37 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
+    dataBinding {
+        enabled = true
+    }
+    androidExtensions {
+        experimental = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
     sourceSets {
         androidTest.java.srcDirs += "src/test-common/java"
         test.java.srcDirs += "src/test-common/java"
     }
-    lintOptions {
-        lintConfig rootProject.file('lint.xml')
-    }
 }
 
-//jacoco {
-//    toolVersion = "0.7.4+"
-//}
-
 dependencies {
-
-   //  kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    implementation "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+    //  kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+//    implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+//    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//    implementation "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
     implementation "org.jetbrains.anko:anko:$ankoVersion"
 
     //Support
-    implementation "androidx.annotation:annotation:$support_version"
+    //implementation "androidx.annotation:annotation:$support_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.recyclerview:recyclerview:$support_version"
     implementation "androidx.cardview:cardview:$support_version"
@@ -74,6 +59,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.fragment:fragment:$fragment_version"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
     implementation "androidx.fragment:fragment-testing:$fragment_version"
     implementation "androidx.activity:activity-ktx:$activity_version"
 
@@ -115,36 +101,20 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger_version"
     implementation "com.google.dagger:dagger-android:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    implementation "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     //room
     implementation "androidx.room:room-runtime:$room_version"
-    implementation "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-rxjava2:$room_version"
-    implementation "androidx.room:room-testing:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     implementation "com.jakewharton.timber:timber:$timber_version"
 
-    //espresso
-//    espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
-//    espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
-//    espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
-//    deps.espresso = espresso
-//
-//    //atsl
-//    atsl.core = "androidx.test:core:$versions.atsl_core"
-//    atsl.ext_junit = "androidx.test.ext:junit:$versions.atsl_junit"
-//    atsl.runner = "androidx.test:runner:$versions.atsl_runner"
-//    atsl.rules = "androidx.test:rules:$versions.atsl_rules"
-//    deps.atsl = atsl
-//
-//    //mockito
-//    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
-//    androidTestImplementation "org.mockito:mockito-all:$mockito_all_version"
-//    androidTestImplementation "org.mockito:mockito-android:$mockito_android_version"
-//
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // unit test
+//    testImplementation "junit:junit:$junit_version"
+//    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_version"
+//    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+//    androidTestImplementation "androidx.test.ext:junit:$androidxTest"
+//    androidTestImplementation "androidx.test:core:$androidxTest"
+//    androidTestImplementation "androidx.test:rules:$androidxTestRules"
 }

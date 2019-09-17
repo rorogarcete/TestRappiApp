@@ -1,6 +1,6 @@
 package com.prestosoftware.test.rappi
 
-import android.app.Application
+import com.prestosoftware.test.rappi.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import timber.log.Timber
@@ -15,8 +15,6 @@ class TestRappiApplication: DaggerApplication() {
         const val CATEGORY_POPULAR = "popular"
         const val CATEGORY_TOP = "top_rated"
         const val CATEGORY_UPCOMING = "upcoming"
-
-        lateinit var application: Application
     }
 
     private val appComponent = DaggerAppComponent.builder()
@@ -30,7 +28,6 @@ class TestRappiApplication: DaggerApplication() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {

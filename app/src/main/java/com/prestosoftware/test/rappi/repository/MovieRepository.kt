@@ -21,11 +21,7 @@ import javax.inject.Singleton
 
 @Singleton
 class MovieRepository @Inject
-constructor(val service: MovieService, val movieDao: MovieDao) : Repository {
-
-  init {
-    Timber.d("Injection MovieRepository")
-  }
+constructor(val service: MovieService, val movieDao: MovieDao): Repository {
 
   fun loadMovies(category: String, page: Int): LiveData<Resource<List<Movie>>> {
     return object : NetworkBoundRepository<List<Movie>, MovieListResponse, MovieResponseMapper>() {
@@ -41,7 +37,7 @@ constructor(val service: MovieService, val movieDao: MovieDao) : Repository {
       }
 
       override fun loadFromDb(): LiveData<List<Movie>> {
-        return movieDao.getMovieList(page_ = page)
+        return movieDao.getMovieList(page = page)
       }
 
       override fun fetchService(): LiveData<ApiResponse<MovieListResponse>> {
@@ -61,7 +57,7 @@ constructor(val service: MovieService, val movieDao: MovieDao) : Repository {
   fun loadKeywordList(id: Int): LiveData<Resource<List<Keyword>>> {
     return object : NetworkBoundRepository<List<Keyword>, KeywordListResponse, KeywordResponseMapper>() {
       override fun saveFetchData(items: KeywordListResponse) {
-        val movie = movieDao.getMovie(id_ = id)
+        val movie = movieDao.getMovie(id = id)
         movie.keywords = items.keywords
         movieDao.updateMovie(movie = movie)
       }
@@ -71,7 +67,7 @@ constructor(val service: MovieService, val movieDao: MovieDao) : Repository {
       }
 
       override fun loadFromDb(): LiveData<List<Keyword>> {
-        val movie = movieDao.getMovie(id_ = id)
+        val movie = movieDao.getMovie(id = id)
         val data: MutableLiveData<List<Keyword>> = MutableLiveData()
         data.value = movie.keywords
         return data
@@ -94,7 +90,7 @@ constructor(val service: MovieService, val movieDao: MovieDao) : Repository {
   fun loadVideoList(id: Int): LiveData<Resource<List<Video>>> {
     return object : NetworkBoundRepository<List<Video>, VideoListResponse, VideoResponseMapper>() {
       override fun saveFetchData(items: VideoListResponse) {
-        val movie = movieDao.getMovie(id_ = id)
+        val movie = movieDao.getMovie(id = id)
         movie.videos = items.results
         movieDao.updateMovie(movie = movie)
       }
@@ -104,7 +100,7 @@ constructor(val service: MovieService, val movieDao: MovieDao) : Repository {
       }
 
       override fun loadFromDb(): LiveData<List<Video>> {
-        val movie = movieDao.getMovie(id_ = id)
+        val movie = movieDao.getMovie(id = id)
         val data: MutableLiveData<List<Video>> = MutableLiveData()
         data.value = movie.videos
         return data

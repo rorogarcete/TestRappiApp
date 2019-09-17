@@ -14,6 +14,11 @@ import com.prestosoftware.test.rappi.models.Video
 import com.prestosoftware.test.rappi.models.entity.Movie
 import com.prestosoftware.test.rappi.ui.movie.VideoListAdapter
 import com.prestosoftware.test.rappi.ui.movie.VideoListViewHolder
+import com.prestosoftware.test.rappi.util.compose.ViewModelActivity
+import com.prestosoftware.test.rappi.util.extension.applyToolbarMargin
+import com.prestosoftware.test.rappi.util.extension.simpleToolbarWithHome
+import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.layout_movie_detail_body.*
 import org.jetbrains.anko.startActivity
 
 class MovieDetailActivity : ViewModelActivity(), VideoListViewHolder.Delegate {
