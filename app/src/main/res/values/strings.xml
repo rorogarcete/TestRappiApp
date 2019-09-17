@@ -3,4 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="retry">Retry</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="search_hint">search movies</string>
+
+    <string name="transition_profile">transition_profile</string>
+    <string name="menu_movie_popular">Popular</string>
+    <string name="menu_top">Top</string>
+    <string name="menu_upcoming">Upcoming</string>
+    <string name="menu_search">Search</string>
 </resources>
