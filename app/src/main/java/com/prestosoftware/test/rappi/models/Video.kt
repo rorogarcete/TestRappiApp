@@ -1,6 +1,9 @@
 package com.prestosoftware.test.rappi.models
 
-//@Parcelize : Parcelable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Video(
   val id: String,
   val name: String,
@@ -8,4 +11,4 @@ data class Video(
   val key: String,
   val size: Int,
   val type: String
-)
+) : Parcelable

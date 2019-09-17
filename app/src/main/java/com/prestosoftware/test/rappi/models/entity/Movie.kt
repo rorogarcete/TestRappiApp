@@ -1,10 +1,12 @@
 package com.prestosoftware.test.rappi.models.entity
 
+import android.os.Parcelable
 import androidx.room.Entity
 import com.prestosoftware.test.rappi.models.Keyword
 import com.prestosoftware.test.rappi.models.Video
+import kotlinx.android.parcel.Parcelize
 
-//@Parcelize : Parcelable
+@Parcelize
 @Entity(primaryKeys = [("id")])
 data class Movie(
     var page: Int,
@@ -24,4 +26,4 @@ data class Movie(
     val vote_count: Int,
     val video: Boolean,
     val vote_average: Float
-)
+) : Parcelable
