@@ -27,9 +27,9 @@ import org.junit.runners.JUnit4
 class MainActivityViewModelTest {
 
   private lateinit var viewModel: MainActivityViewModel
+  private lateinit var movieRepository: MovieRepository
 
   private val movieDao = mock<MovieDao>()
-  private val movieRepository = mock<MovieRepository>()
   private val movieService = mock<MovieService>()
 
   @Rule
@@ -38,6 +38,7 @@ class MainActivityViewModelTest {
 
   @Before
   fun init() {
+    movieRepository = MovieRepository(movieService, movieDao)
     viewModel = MainActivityViewModel(movieRepository)
   }
 

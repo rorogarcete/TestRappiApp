@@ -40,6 +40,7 @@ captures/
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/misc.xml
+.idea/codeStyles
 .idea/codeStyles/Project.xml
 .idea/codeStyles/codeStylesConfig.xml
 .idea/encodings.xml
