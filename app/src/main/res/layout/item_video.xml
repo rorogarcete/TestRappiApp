@@ -17,6 +17,7 @@
       android:id="@+id/item_video_cover"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:contentDescription="@string/app_name"
       android:scaleType="centerCrop" />
 
     <ImageView
@@ -24,6 +25,7 @@
       android:layout_height="20dp"
       android:layout_centerInParent="true"
       android:scaleType="fitXY"
+      android:contentDescription="@string/app_name"
       android:src="@drawable/icon_youtube" />
 
     <RelativeLayout

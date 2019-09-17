@@ -4,12 +4,10 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
-    <variable
-      name="movie"
+    <variable name="movie"
       type="com.prestosoftware.test.rappi.models.entity.Movie" />
 
-    <variable
-      name="viewModel"
+    <variable name="viewModel"
       type="com.prestosoftware.test.rappi.ui.movie.detail.MovieDetailViewModel" />
   </data>
 
