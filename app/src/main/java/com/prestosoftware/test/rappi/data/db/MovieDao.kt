@@ -15,6 +15,9 @@ interface MovieDao {
     @Query("SELECT * FROM Movie WHERE page = :page")
     fun getMovieList(page: Int): LiveData<List<Movie>>
 
+    @Query("SELECT * FROM Movie WHERE page = :page AND category LIKE :category")
+    fun getMoviesByCategory(category: String, page: Int): LiveData<List<Movie>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(movies: List<Movie>)
 
