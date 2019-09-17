@@ -14,4 +14,5 @@ abstract class ActivityModule {
 
   @ContributesAndroidInjector
   internal abstract fun contributeMovieDetailActivity(): MovieDetailActivity
+
 }

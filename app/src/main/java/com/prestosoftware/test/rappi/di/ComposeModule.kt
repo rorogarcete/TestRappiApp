@@ -1,5 +1,7 @@
 package com.prestosoftware.test.rappi.di
 
+import com.prestosoftware.test.rappi.util.compose.ViewModelActivity
+import com.prestosoftware.test.rappi.util.compose.ViewModelFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

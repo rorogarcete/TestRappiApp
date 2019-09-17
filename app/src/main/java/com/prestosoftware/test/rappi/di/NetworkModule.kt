@@ -21,15 +21,15 @@ class NetworkModule {
   @Provides
   @Singleton
   fun provideHttpClient(): OkHttpClient {
-      val httpCacheDirectory = File(TestRappiApplication.application.cacheDir, "cache")
-      val cacheSize: Long = 10 * 1024 * 1024 // 10 MiB
-      val cache = Cache(httpCacheDirectory, cacheSize)
-      val requestInterceptor = RequestInterceptor()
+//      val httpCacheDirectory = File(TestRappiApplication.application.cacheDir, "cache")
+//      val cacheSize: Long = 10 * 1024 * 1024 // 10 MiB
+//      val cache = Cache(httpCacheDirectory, cacheSize)
+//      val requestInterceptor = RequestInterceptor()
 
       return OkHttpClient.Builder()
-        .addInterceptor(requestInterceptor)
+        .addInterceptor(RequestInterceptor())
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        .cache(cache)
+        //.cache(cache)
         .build()
   }
 
@@ -38,7 +38,7 @@ class NetworkModule {
   fun provideRetrofit(@NonNull okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
       .client(okHttpClient)
-      .baseUrl(TestRappiApplication.API_URL)
+      .baseUrl("https://api.themoviedb.org/3/")
       .addConverterFactory(GsonConverterFactory.create())
       .addCallAdapterFactory(LiveDataCallAdapterFactory())
       .build()
