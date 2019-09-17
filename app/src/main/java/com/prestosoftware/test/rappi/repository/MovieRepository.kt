@@ -49,7 +49,7 @@ constructor(val service: MovieService, val movieDao: MovieDao): Repository {
       }
 
       override fun onFetchFailed(message: String?) {
-        Timber.d("onFetchFailed $message")
+        Timber.d("Load Movie Failed $message")
       }
     }.asLiveData()
   }
@@ -82,7 +82,7 @@ constructor(val service: MovieService, val movieDao: MovieDao): Repository {
       }
 
       override fun onFetchFailed(message: String?) {
-        Timber.d("onFetchFailed : $message")
+        Timber.d("load Keyword Failed : $message")
       }
     }.asLiveData()
   }
@@ -115,7 +115,7 @@ constructor(val service: MovieService, val movieDao: MovieDao): Repository {
       }
 
       override fun onFetchFailed(message: String?) {
-        Timber.d("onFetchFailed : $message")
+        Timber.d("Load Video Failed : $message")
       }
     }.asLiveData()
   }
