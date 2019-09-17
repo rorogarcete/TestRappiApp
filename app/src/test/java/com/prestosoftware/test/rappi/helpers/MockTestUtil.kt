@@ -6,10 +6,12 @@ import com.prestosoftware.test.rappi.models.entity.Movie
 
 class MockTestUtil {
 	companion object {
+
 		fun mockMovie() = Movie(1, emptyList(), emptyList(), "",
 			false, "", "", ArrayList(), 123,
 			"", "", "", "", 0f,
 			0, false, 0f)
+
 		fun mockKeywordList(): List<Keyword> {
 			val keywords = ArrayList<Keyword>()
 			keywords.add(Keyword(100, "Key0"))
@@ -24,5 +26,6 @@ class MockTestUtil {
 			videos.add(Video("123", "video0", "", "", 0, ""))
 			return videos
 		}
+
 	}
 }

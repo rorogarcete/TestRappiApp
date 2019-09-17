@@ -19,7 +19,7 @@ class MovieServiceTest : ApiAbstract<MovieService>() {
 	@Throws(IOException::class)
 	@Test
 	fun fetchMovieKeywordsTest() {
-		enqueueResponse("/tmdb_movie_keywords.json")
+		enqueueResponse("/movie_keywords.json")
 		val response = LiveDataTestUtil.getValue(service.fetchKeywords(1))
 		assertThat(response.body?.id, `is`(550))
 		assertThat(response.body?.keywords?.get(0)?.id, `is`(825))
@@ -29,7 +29,7 @@ class MovieServiceTest : ApiAbstract<MovieService>() {
 	@Throws(IOException::class)
 	@Test
 	fun fetchMovieVideosTest() {
-		enqueueResponse("/tmdb_movie_videos.json")
+		enqueueResponse("/movie_videos.json")
 		val response = LiveDataTestUtil.getValue(service.fetchVideos(1))
 		assertThat(response.body?.id, `is`(550))
 		assertThat(response.body?.results?.get(0)?.id, `is`("533ec654c3a36854480003eb"))

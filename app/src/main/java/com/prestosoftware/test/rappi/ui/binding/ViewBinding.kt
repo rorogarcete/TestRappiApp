@@ -53,25 +53,3 @@ fun bindBackDrop(view: ImageView, movie: Movie) {
       .into(view)
   }
 }
-
-//@BindingAdapter("bindBackDrop")
-//fun bindBackDrop(view: ImageView, tv: Tv) {
-//  if (tv.backdrop_path != null) {
-//    Glide.with(view.context).load(Api.getBackdropPath(tv.backdrop_path))
-//      .listener(view.requestGlideListener())
-//      .into(view)
-//  } else {
-//    Glide.with(view.context).load(Api.getBackdropPath(tv.poster_path))
-//      .listener(view.requestGlideListener())
-//      .into(view)
-//  }
-//}
-
-//@BindingAdapter("bindBackDrop")
-//fun bindBackDrop(view: ImageView, person: Person) {
-//  if (person.profile_path != null) {
-//    Glide.with(view.context).load(Api.getBackdropPath(person.profile_path))
-//      .apply(RequestOptions().circleCrop())
-//      .into(view)
-//  }
-//}
