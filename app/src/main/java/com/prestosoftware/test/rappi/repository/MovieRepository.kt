@@ -1,5 +1,6 @@
 package com.prestosoftware.test.rappi.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.prestosoftware.test.rappi.data.api.ApiResponse
@@ -28,6 +29,7 @@ constructor(val service: MovieService, val movieDao: MovieDao): Repository {
       override fun saveFetchData(items: MovieListResponse) {
         for (item in items.results) {
           item.page = page
+          item.category = category
         }
         movieDao.insertAll(movies = items.results)
       }
@@ -37,7 +39,7 @@ constructor(val service: MovieService, val movieDao: MovieDao): Repository {
       }
 
       override fun loadFromDb(): LiveData<List<Movie>> {
-        return movieDao.getMovieList(page = page)
+        return movieDao.getMoviesByCategory(category = category, page = page)
       }
 
       override fun fetchService(): LiveData<ApiResponse<MovieListResponse>> {

@@ -16,7 +16,6 @@ import com.prestosoftware.test.rappi.util.compose.ViewModelFragment
 import com.skydoves.baserecyclerviewadapter.RecyclerViewPaginator
 import kotlinx.android.synthetic.main.fragment_popular_movie.*
 
-//@Suppress("SpellCheckingInspection")
 class MoviePopularListFragment : ViewModelFragment(), MoviePopularListViewHolder.Delegate {
 
   private val viewModel by viewModel<MainActivityViewModel>()
