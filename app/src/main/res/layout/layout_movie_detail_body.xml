@@ -81,27 +81,5 @@
       app:tag_theme="none"
       app:tag_vertical_padding="6dp"
       tools:visibility="visible" />
-
-    <TextView
-      android:id="@+id/detail_body_reviews"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="23dp"
-      android:text="Reviews"
-      android:textColor="@color/white"
-      android:textSize="20sp"
-      android:textStyle="bold"
-      android:visibility="gone"
-      app:visibilityByResource="@{viewModel.reviewListLiveData}"
-      tools:visibility="visible" />
-
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/detail_body_recyclerView_reviews"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="12dp"
-      android:visibility="gone"
-      app:adapterReviewList="@{viewModel.reviewListLiveData}"
-      tools:visibility="visible" />
   </LinearLayout>
 </layout>
