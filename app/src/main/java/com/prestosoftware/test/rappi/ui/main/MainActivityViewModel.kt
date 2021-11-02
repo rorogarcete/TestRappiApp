@@ -11,33 +11,29 @@ import com.prestosoftware.test.rappi.repository.MovieRepository
 import com.prestosoftware.test.rappi.util.AbsentLiveData
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject
-constructor(private val movieRepository: MovieRepository): ViewModel() {
+class MainActivityViewModel @Inject constructor(
+	private val movieRepository: MovieRepository
+): ViewModel() {
 
 	private var moviePopularLiveData: MutableLiveData<Int> = MutableLiveData()
-	val moviePopularListLiveData: LiveData<Resource<List<Movie>>>
+	val moviePopularListLiveData: LiveData<Resource<List<Movie>>> = moviePopularLiveData.switchMap {
+		moviePopularLiveData.value?.let {
+			movieRepository.loadMovies(TestRappiApplication.CATEGORY_POPULAR, it)
+		} ?: AbsentLiveData.create()
+	}
 
 	private var movieTopLiveData: MutableLiveData<Int> = MutableLiveData()
-	val movieTopListLiveData: LiveData<Resource<List<Movie>>>
+	val movieTopListLiveData: LiveData<Resource<List<Movie>>> = movieTopLiveData.switchMap {
+		movieTopLiveData.value?.let {
+			movieRepository.loadMovies(TestRappiApplication.CATEGORY_TOP, it)
+		} ?: AbsentLiveData.create()
+	}
 
 	private var movieUpcomingLiveData: MutableLiveData<Int> = MutableLiveData()
-	val movieUpcomingListLiveData: LiveData<Resource<List<Movie>>>
-
-	init {
-		moviePopularListLiveData = moviePopularLiveData.switchMap {
-			moviePopularLiveData.value?.let { movieRepository.loadMovies(TestRappiApplication.CATEGORY_POPULAR, it) }
-				?: AbsentLiveData.create()
-		}
-
-		movieTopListLiveData = movieTopLiveData.switchMap {
-			movieTopLiveData.value?.let { movieRepository.loadMovies(TestRappiApplication.CATEGORY_TOP, it) }
-				?: AbsentLiveData.create()
-		}
-
-		movieUpcomingListLiveData = movieUpcomingLiveData.switchMap {
-			movieUpcomingLiveData.value?.let { movieRepository.loadMovies(TestRappiApplication.CATEGORY_UPCOMING, it) }
-				?: AbsentLiveData.create()
-		}
+	val movieUpcomingListLiveData: LiveData<Resource<List<Movie>>> = movieUpcomingLiveData.switchMap {
+		movieUpcomingLiveData.value?.let {
+			movieRepository.loadMovies(TestRappiApplication.CATEGORY_UPCOMING, it)
+		} ?: AbsentLiveData.create()
 	}
 
 	fun getMoviePopularListValues() = moviePopularListLiveData.value

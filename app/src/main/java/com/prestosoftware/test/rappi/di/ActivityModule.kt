@@ -2,6 +2,7 @@ package com.prestosoftware.test.rappi.di
 
 import com.prestosoftware.test.rappi.ui.main.MainActivity
 import com.prestosoftware.test.rappi.ui.movie.detail.MovieDetailActivity
+import com.prestosoftware.test.rappi.ui.post.PostActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -14,5 +15,8 @@ abstract class ActivityModule {
 
   @ContributesAndroidInjector
   internal abstract fun contributeMovieDetailActivity(): MovieDetailActivity
+
+  @ContributesAndroidInjector
+  internal abstract fun contributePostActivity(): PostActivity
 
 }

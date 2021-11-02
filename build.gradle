@@ -31,6 +31,8 @@ buildscript {
         glide_version = "4.9.0"
         ankoVersion = '0.10.8'
 
+        swipe_refresh_version = "1.1.0"
+
         timber_version = "4.7.1"
         benchmark_version = "1.0.0-alpha04"
 
