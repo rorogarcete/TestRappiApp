@@ -1,4 +1,4 @@
-package com.prestosoftware.test.rappi.di
+package com.prestosoftware.test.di
 
 import com.prestosoftware.test.rappi.ui.main.MainActivity
 import com.prestosoftware.test.rappi.ui.movie.detail.MovieDetailActivity

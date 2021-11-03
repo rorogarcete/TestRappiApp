@@ -7,7 +7,7 @@ import com.google.android.material.snackbar.Snackbar.LENGTH_SHORT
 import com.prestosoftware.test.rappi.R
 import com.prestosoftware.test.rappi.databinding.ActivityPostBinding
 import com.prestosoftware.test.reign.models.Post
-import com.prestosoftware.test.reign.ui.post.detail.PostDetailActivity
+import com.prestosoftware.test.reign.ui.detail.PostDetailActivity
 import com.prestosoftware.test.rappi.util.compose.ViewModelActivity
 
 class PostActivity: ViewModelActivity(), PostViewHolder.Delegate  {

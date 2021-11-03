@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
-import com.prestosoftware.test.rappi.TestRappiApplication
+import com.prestosoftware.test.TestApplication
 import com.prestosoftware.test.rappi.models.Resource
 import com.prestosoftware.test.rappi.models.entity.Movie
 import com.prestosoftware.test.rappi.repository.MovieRepository
@@ -18,21 +18,21 @@ class MainActivityViewModel @Inject constructor(
 	private var moviePopularLiveData: MutableLiveData<Int> = MutableLiveData()
 	val moviePopularListLiveData: LiveData<Resource<List<Movie>>> = moviePopularLiveData.switchMap {
 		moviePopularLiveData.value?.let {
-			movieRepository.loadMovies(TestRappiApplication.CATEGORY_POPULAR, it)
+			movieRepository.loadMovies(TestApplication.CATEGORY_POPULAR, it)
 		} ?: AbsentLiveData.create()
 	}
 
 	private var movieTopLiveData: MutableLiveData<Int> = MutableLiveData()
 	val movieTopListLiveData: LiveData<Resource<List<Movie>>> = movieTopLiveData.switchMap {
 		movieTopLiveData.value?.let {
-			movieRepository.loadMovies(TestRappiApplication.CATEGORY_TOP, it)
+			movieRepository.loadMovies(TestApplication.CATEGORY_TOP, it)
 		} ?: AbsentLiveData.create()
 	}
 
 	private var movieUpcomingLiveData: MutableLiveData<Int> = MutableLiveData()
 	val movieUpcomingListLiveData: LiveData<Resource<List<Movie>>> = movieUpcomingLiveData.switchMap {
 		movieUpcomingLiveData.value?.let {
-			movieRepository.loadMovies(TestRappiApplication.CATEGORY_UPCOMING, it)
+			movieRepository.loadMovies(TestApplication.CATEGORY_UPCOMING, it)
 		} ?: AbsentLiveData.create()
 	}
 

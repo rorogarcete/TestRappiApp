@@ -1,8 +1,8 @@
-package com.prestosoftware.test.rappi.di
+package com.prestosoftware.test.di
 
 import androidx.annotation.NonNull
-import com.prestosoftware.test.rappi.TestRappiApplication
-import com.prestosoftware.test.rappi.TestRappiApplication.Companion.IS_POST_SERVICE_ON
+import com.prestosoftware.test.TestApplication
+import com.prestosoftware.test.TestApplication.Companion.IS_POST_SERVICE_ON
 import com.prestosoftware.test.rappi.data.api.MovieService
 import com.prestosoftware.test.reign.data.PostService
 import com.prestosoftware.test.rappi.util.LiveDataCallAdapterFactory
@@ -39,9 +39,9 @@ class NetworkModule {
       .client(okHttpClient)
       .baseUrl(
         if (IS_POST_SERVICE_ON)  {
-          TestRappiApplication.POST_API_URL
+          TestApplication.POST_API_URL
         } else {
-          TestRappiApplication.API_URL
+          TestApplication.API_URL
         }
       )
       .addConverterFactory(GsonConverterFactory.create())

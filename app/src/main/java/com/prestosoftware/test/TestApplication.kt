@@ -1,11 +1,12 @@
-package com.prestosoftware.test.rappi
+package com.prestosoftware.test
 
-import com.prestosoftware.test.rappi.di.DaggerAppComponent
+import com.prestosoftware.test.di.DaggerAppComponent
+import com.prestosoftware.test.rappi.BuildConfig
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import timber.log.Timber
 
-class TestRappiApplication: DaggerApplication() {
+class TestApplication: DaggerApplication() {
 
     companion object {
         const val API_KEY = "2805b177bde136e05a6502ec65f855f0"

@@ -1,6 +1,6 @@
 package com.prestosoftware.test.rappi.data.api
 
-import com.prestosoftware.test.rappi.TestRappiApplication
+import com.prestosoftware.test.TestApplication
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -9,8 +9,8 @@ internal class RequestInterceptor : Interceptor {
     val originalRequest = chain.request()
     val originalUrl = originalRequest.url()
     val url = originalUrl.newBuilder()
-      .addQueryParameter("api_key", TestRappiApplication.API_KEY)
-      .addQueryParameter("language", TestRappiApplication.API_LG)
+      .addQueryParameter("api_key", TestApplication.API_KEY)
+      .addQueryParameter("language", TestApplication.API_LG)
       .build()
 
     val requestBuilder = originalRequest.newBuilder().url(url)

@@ -1,4 +1,4 @@
-package com.prestosoftware.test.reign.ui.post.detail
+package com.prestosoftware.test.reign.ui.detail
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +13,7 @@ class PostDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_detail)
-        web_view.loadUrl(getPostFromIntent().url.orEmpty())
+        web_view.loadUrl(getPostFromIntent().url)
     }
 
     private fun getPostFromIntent() =

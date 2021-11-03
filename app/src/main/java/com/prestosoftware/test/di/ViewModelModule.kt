@@ -1,4 +1,4 @@
-package com.prestosoftware.test.rappi.di
+package com.prestosoftware.test.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
