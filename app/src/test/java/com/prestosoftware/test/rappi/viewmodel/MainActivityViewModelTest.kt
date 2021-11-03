@@ -7,7 +7,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
 import com.nhaarman.mockitokotlin2.whenever
-import com.prestosoftware.test.rappi.TestRappiApplication
+import com.prestosoftware.test.TestApplication
 import com.prestosoftware.test.rappi.data.api.ApiUtil
 import com.prestosoftware.test.rappi.data.api.MovieService
 import com.prestosoftware.test.rappi.data.db.MovieDao
@@ -49,7 +49,7 @@ class MainActivityViewModelTest {
 
     val mockResponse = MovieListResponse(1,  100, 10, emptyList())
     val call = ApiUtil.successCall(mockResponse)
-    whenever(movieService.getMoviesByCategory(TestRappiApplication.CATEGORY_POPULAR,1)).thenReturn(call)
+    whenever(movieService.getMoviesByCategory(TestApplication.CATEGORY_POPULAR,1)).thenReturn(call)
 
     val data = viewModel.moviePopularListLiveData
     val observer = mock<Observer<Resource<List<Movie>>>>()

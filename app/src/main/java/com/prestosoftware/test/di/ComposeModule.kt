@@ -1,4 +1,4 @@
-package com.prestosoftware.test.rappi.di
+package com.prestosoftware.test.di
 
 import com.prestosoftware.test.rappi.util.compose.ViewModelActivity
 import com.prestosoftware.test.rappi.util.compose.ViewModelFragment

@@ -68,6 +68,8 @@ dependencies {
     //paging
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_version"
+
     //arch_core
     implementation "androidx.arch.core:core-runtime:$arch_core_version"
     implementation "androidx.arch.core:core-testing:$arch_core_version"

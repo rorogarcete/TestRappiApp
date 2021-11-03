@@ -21,8 +21,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MovieRepository @Inject
-constructor(val service: MovieService, val movieDao: MovieDao): Repository {
+class MovieRepository @Inject constructor(
+    private val service: MovieService,
+    private val movieDao: MovieDao
+): Repository {
 
   fun loadMovies(category: String, page: Int): LiveData<Resource<List<Movie>>> {
     return object : NetworkBoundRepository<List<Movie>, MovieListResponse, MovieResponseMapper>() {

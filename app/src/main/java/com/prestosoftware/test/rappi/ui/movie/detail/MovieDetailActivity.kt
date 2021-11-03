@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.prestosoftware.test.rappi.R
+import com.prestosoftware.test.R
 import com.prestosoftware.test.rappi.data.api.Api
-import com.prestosoftware.test.rappi.databinding.ActivityMovieDetailBinding
+import com.prestosoftware.test.databinding.ActivityMovieDetailBinding
 import com.prestosoftware.test.rappi.models.Video
 import com.prestosoftware.test.rappi.models.entity.Movie
 import com.prestosoftware.test.rappi.ui.movie.VideoListAdapter

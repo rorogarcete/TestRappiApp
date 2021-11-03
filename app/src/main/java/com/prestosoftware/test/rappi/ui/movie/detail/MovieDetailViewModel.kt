@@ -12,8 +12,9 @@ import com.prestosoftware.test.rappi.util.AbsentLiveData
 import timber.log.Timber
 import javax.inject.Inject
 
-class MovieDetailViewModel @Inject
-constructor(private val repository: MovieRepository) : ViewModel() {
+class MovieDetailViewModel @Inject constructor(
+    private val repository: MovieRepository
+) : ViewModel() {
 
   private val movieIdLiveData: MutableLiveData<Int> = MutableLiveData()
   val keywordListLiveData: LiveData<Resource<List<Keyword>>>
