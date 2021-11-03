@@ -4,8 +4,7 @@ import androidx.annotation.NonNull
 import com.prestosoftware.test.rappi.TestRappiApplication
 import com.prestosoftware.test.rappi.TestRappiApplication.Companion.IS_POST_SERVICE_ON
 import com.prestosoftware.test.rappi.data.api.MovieService
-import com.prestosoftware.test.rappi.data.api.PostService
-import com.prestosoftware.test.rappi.data.api.RequestInterceptor
+import com.prestosoftware.test.reign.data.PostService
 import com.prestosoftware.test.rappi.util.LiveDataCallAdapterFactory
 import dagger.Module
 import dagger.Provides

@@ -5,7 +5,7 @@ import androidx.annotation.NonNull
 import androidx.room.Room
 import com.prestosoftware.test.rappi.TestRappiApplication
 import com.prestosoftware.test.rappi.data.db.MovieDao
-import com.prestosoftware.test.rappi.data.db.PostDao
+import com.prestosoftware.test.reign.data.dao.PostDao
 import com.prestosoftware.test.rappi.data.db.TestDb
 import dagger.Module
 import dagger.Provides

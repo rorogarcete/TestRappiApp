@@ -17,4 +17,6 @@
     <string name="txt_trailers">Trailers</string>
 
     <string name="post_hits">Post Hits</string>
+    <string name="post_removed_error">Error post removed</string>
+    <string name="post_removed_successful">Post removed</string>
 </resources>

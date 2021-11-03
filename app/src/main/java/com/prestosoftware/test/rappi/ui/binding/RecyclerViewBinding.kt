@@ -5,12 +5,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.prestosoftware.test.rappi.models.Resource
 import com.prestosoftware.test.rappi.models.Video
 import com.prestosoftware.test.rappi.models.entity.Movie
-import com.prestosoftware.test.rappi.models.entity.Post
+import com.prestosoftware.test.reign.models.Post
 import com.prestosoftware.test.rappi.ui.movie.upcoming.MovieUpcomingListAdapter
 import com.prestosoftware.test.rappi.ui.movie.VideoListAdapter
 import com.prestosoftware.test.rappi.ui.movie.popular.MoviePopularListAdapter
 import com.prestosoftware.test.rappi.ui.movie.topRated.MovieTopListAdapter
-import com.prestosoftware.test.rappi.ui.post.PostListAdapter
+import com.prestosoftware.test.reign.ui.post.PostListAdapter
 import com.prestosoftware.test.rappi.util.extension.bindResource
 import com.prestosoftware.test.rappi.util.extension.visible
 

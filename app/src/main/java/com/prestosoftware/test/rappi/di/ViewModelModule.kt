@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.prestosoftware.test.rappi.ui.movie.detail.MovieDetailViewModel
 import com.prestosoftware.test.rappi.ui.main.MainActivityViewModel
-import com.prestosoftware.test.rappi.ui.post.PostViewModel
+import com.prestosoftware.test.reign.ui.post.PostViewModel
 import com.prestosoftware.test.rappi.util.factory.AppViewModelFactory
 import dagger.Binds
 import dagger.Module
