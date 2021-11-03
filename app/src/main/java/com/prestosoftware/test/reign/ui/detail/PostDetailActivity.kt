@@ -2,10 +2,10 @@ package com.prestosoftware.test.reign.ui.detail
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
-import com.prestosoftware.test.rappi.R
+import com.prestosoftware.test.R
 import android.os.Bundle
 import com.prestosoftware.test.reign.models.Post
-import kotlinx.android.synthetic.main.activity_post_detail.*
+import kotlinx.android.synthetic.main.activity_post_detail.web_view
 import org.jetbrains.anko.startActivity
 
 class PostDetailActivity : AppCompatActivity() {

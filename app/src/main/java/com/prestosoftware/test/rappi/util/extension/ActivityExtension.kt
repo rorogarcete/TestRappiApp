@@ -15,7 +15,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.prestosoftware.test.rappi.R
+import com.prestosoftware.test.R
 
 fun checkIsMaterialVersion() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
 

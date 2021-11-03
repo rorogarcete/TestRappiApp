@@ -1,7 +1,7 @@
 package com.prestosoftware.test.rappi.ui.movie
 
 import android.view.View
-import com.prestosoftware.test.rappi.R
+import com.prestosoftware.test.R
 import com.prestosoftware.test.rappi.models.Resource
 import com.prestosoftware.test.rappi.models.Video
 import com.skydoves.baserecyclerviewadapter.BaseAdapter

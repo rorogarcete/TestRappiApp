@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.LENGTH_SHORT
-import com.prestosoftware.test.rappi.R
-import com.prestosoftware.test.rappi.databinding.ActivityPostBinding
+import com.prestosoftware.test.R
+import com.prestosoftware.test.databinding.ActivityPostBinding
 import com.prestosoftware.test.reign.models.Post
 import com.prestosoftware.test.reign.ui.detail.PostDetailActivity
 import com.prestosoftware.test.rappi.util.compose.ViewModelActivity
@@ -31,9 +31,9 @@ class PostActivity: ViewModelActivity(), PostViewHolder.Delegate  {
         binding.recyclerViewPost.adapter = PostListAdapter(this)
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(this)
 
-        binding.swipeContainer.run {
-            setOnRefreshListener { viewModelPost.postListLiveData }
-            isRefreshing = false
+        binding.swipeContainer.setOnRefreshListener {
+            viewModelPost.postListLiveData
+            binding.swipeContainer.isRefreshing = false
         }
     }
 

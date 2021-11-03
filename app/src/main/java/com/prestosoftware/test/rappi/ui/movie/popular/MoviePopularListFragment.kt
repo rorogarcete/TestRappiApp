@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.prestosoftware.test.rappi.R
-import com.prestosoftware.test.rappi.databinding.FragmentPopularMovieBinding
+import com.prestosoftware.test.R
+import com.prestosoftware.test.databinding.FragmentPopularMovieBinding
 import com.prestosoftware.test.rappi.models.Status
 import com.prestosoftware.test.rappi.models.entity.Movie
 import com.prestosoftware.test.rappi.ui.main.MainActivityViewModel
