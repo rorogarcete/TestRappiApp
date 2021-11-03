@@ -10,7 +10,7 @@ Este proyecto esta basado en la Arquitectura MVVM y Repository Pattern. Se ha ut
 
 ### 1 - Capa de Persistencia
 - Se utilizo (Room)[https://developer.android.com/topic/libraries/architecture/room] como abstraccion del SQLite de android para almacenar.
-- MovieDao: Es la clase encargado de la comunicacion con la base de datos, es implementado utilizando el DAO Pattern. Realiza operaciones con las tablas.
+- Dao: Es la clase encargado de la comunicacion con la base de datos, es implementado utilizando el DAO Pattern. Realiza operaciones con las tablas.
 
 ### 2 - Capa de Red
 - Se utilizo (retrofit)[https://square.github.io/retrofit/] para realizar las peticiones al API REST.
@@ -18,13 +18,11 @@ Este proyecto esta basado en la Arquitectura MVVM y Repository Pattern. Se ha ut
 
 ### 3 - Capa de Negocio
 - La capa de negocio es implementado utilizando Repository Pattern.
-- MovieRepository: Es la fuente de datos, encargado de obtener de la cache local o del servidor.
-- ViewModel: Mediante la utilizacion de LiveData se informa a la UI que se obtuvo un resultado.
+- Repositories: Es la fuente de datos, encargado de obtener de la cache local o del servidor.
+- ViewModels: Mediante la utilizacion de LiveData se informa a la UI que se obtuvo un resultado.
 
 ### 4 - Capa de UI
 - Las vistas son manejadas por las activities y los fragments
-- MainActivity: Contiene un view pager con bottom navigation que contiene 3 fragments, cada uno encargado de manejar la lista de peliculas de acuerdo a la categoria que pertenecen.
-- MovieDetailActivity: Encargado de mostrar el detalle una pelicula.
 
 # Preguntas
 
