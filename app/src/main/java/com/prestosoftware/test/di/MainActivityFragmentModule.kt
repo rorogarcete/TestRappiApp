@@ -6,17 +6,16 @@ import com.prestosoftware.test.rappi.ui.movie.topRated.MovieTopListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Suppress("unused")
 @Module
 abstract class MainActivityFragmentModule {
 
-  @ContributesAndroidInjector
-  abstract fun contributeMoviePopularListFragment(): MoviePopularListFragment
+    @ContributesAndroidInjector
+    abstract fun contributeMoviePopularListFragment(): MoviePopularListFragment
 
-  @ContributesAndroidInjector
-  abstract fun contributeMovieTopListFragment(): MovieTopListFragment
+    @ContributesAndroidInjector
+    abstract fun contributeMovieTopListFragment(): MovieTopListFragment
 
-  @ContributesAndroidInjector
-  abstract fun contributeMovieUpcomingListFragment(): MovieUpcomingListFragment
+    @ContributesAndroidInjector
+    abstract fun contributeMovieUpcomingListFragment(): MovieUpcomingListFragment
 
 }

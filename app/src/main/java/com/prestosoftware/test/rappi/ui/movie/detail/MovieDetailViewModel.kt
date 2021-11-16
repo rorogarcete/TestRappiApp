@@ -16,25 +16,25 @@ class MovieDetailViewModel @Inject constructor(
     private val repository: MovieRepository
 ) : ViewModel() {
 
-  private val movieIdLiveData: MutableLiveData<Int> = MutableLiveData()
-  val keywordListLiveData: LiveData<Resource<List<Keyword>>>
-  val videoListLiveData: LiveData<Resource<List<Video>>>
+    private val movieIdLiveData: MutableLiveData<Int> = MutableLiveData()
+    val keywordListLiveData: LiveData<Resource<List<Keyword>>>
+    val videoListLiveData: LiveData<Resource<List<Video>>>
 
-  init {
-    Timber.d("Injection MovieDetailViewModel")
+    init {
+        Timber.d("Injection MovieDetailViewModel")
 
-    this.keywordListLiveData = movieIdLiveData.switchMap {
-      movieIdLiveData.value?.let {
-        repository.loadKeywordList(it)
-      } ?: AbsentLiveData.create()
+        this.keywordListLiveData = movieIdLiveData.switchMap {
+            movieIdLiveData.value?.let {
+                repository.loadKeywordList(it)
+            } ?: AbsentLiveData.create()
+        }
+
+        this.videoListLiveData = movieIdLiveData.switchMap {
+            movieIdLiveData.value?.let {
+                repository.loadVideoList(it)
+            } ?: AbsentLiveData.create()
+        }
     }
 
-    this.videoListLiveData = movieIdLiveData.switchMap {
-      movieIdLiveData.value?.let {
-        repository.loadVideoList(it)
-      } ?: AbsentLiveData.create()
-    }
-  }
-
-  fun postMovieId(id: Int) = movieIdLiveData.postValue(id)
+    fun postMovieId(id: Int) = movieIdLiveData.postValue(id)
 }

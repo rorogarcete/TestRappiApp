@@ -8,15 +8,15 @@ import com.prestosoftware.test.rappi.ui.movie.popular.MoviePopularListFragment
 import com.prestosoftware.test.rappi.ui.movie.topRated.MovieTopListFragment
 
 class MainPagerAdapter(fm: FragmentManager)
-  : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-  override fun getItem(position: Int): Fragment {
-    return when (position) {
-      0 -> MoviePopularListFragment()
-      1 -> MovieTopListFragment()
-      else -> MovieUpcomingListFragment()
+    override fun getItem(position: Int): Fragment {
+        return when (position) {
+            0 -> MoviePopularListFragment()
+            1 -> MovieTopListFragment()
+            else -> MovieUpcomingListFragment()
+        }
     }
-  }
 
-  override fun getCount() = 3
+    override fun getCount() = 3
 }

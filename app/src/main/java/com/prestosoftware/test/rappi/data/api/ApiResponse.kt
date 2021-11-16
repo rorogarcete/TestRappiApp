@@ -4,7 +4,6 @@ import retrofit2.Response
 import timber.log.Timber
 import java.io.IOException
 
-@Suppress("MemberVisibilityCanBePrivate")
 class ApiResponse<T> {
     val code: Int
     val body: T?
