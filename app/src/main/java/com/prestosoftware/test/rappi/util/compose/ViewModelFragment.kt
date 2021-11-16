@@ -14,20 +14,20 @@ import javax.inject.Inject
 
 open class ViewModelFragment : Fragment() {
 
-  @Inject
-  lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
-  override fun onAttach(context: Context) {
-    AndroidSupportInjection.inject(this)
-    super.onAttach(context)
-  }
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
-  protected inline fun <reified VM : ViewModel>
-    viewModel(): Lazy<VM> = viewModels { viewModelFactory }
+    protected inline fun <reified VM : ViewModel>
+            viewModel(): Lazy<VM> = viewModels { viewModelFactory }
 
-  protected inline fun <reified T : ViewDataBinding> binding(
-    inflater: LayoutInflater,
-    resId: Int,
-    container: ViewGroup?
-  ): T = DataBindingUtil.inflate<T>(inflater, resId, container, false)
+    protected inline fun <reified T : ViewDataBinding> binding(
+        inflater: LayoutInflater,
+        resId: Int,
+        container: ViewGroup?
+    ): T = DataBindingUtil.inflate<T>(inflater, resId, container, false)
 }

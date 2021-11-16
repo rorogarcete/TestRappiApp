@@ -8,24 +8,26 @@ import com.skydoves.baserecyclerviewadapter.BaseAdapter
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import com.skydoves.baserecyclerviewadapter.SectionRow
 
-class MovieTopListAdapter(private val delegate: MovieTopListViewHolder.Delegate): BaseAdapter() {
+class MovieTopListAdapter(
+    private val delegate: MovieTopListViewHolder.Delegate
+) : BaseAdapter() {
 
-	init {
-		addSection(ArrayList<Movie>())
-	}
+    init {
+        addSection(ArrayList<Movie>())
+    }
 
-	fun addMovieList(resource: Resource<List<Movie>>) {
-		resource.data?.let {
-			sections()[0].addAll(it)
-			notifyDataSetChanged()
-		}
-	}
+    fun addMovieList(resource: Resource<List<Movie>>) {
+        resource.data?.let {
+            sections()[0].addAll(it)
+            notifyDataSetChanged()
+        }
+    }
 
-	override fun layout(sectionRow: SectionRow): Int {
-		return R.layout.item_movie_top
-	}
+    override fun layout(sectionRow: SectionRow): Int {
+        return R.layout.item_movie_top
+    }
 
-	override fun viewHolder(layout: Int, view: View): BaseViewHolder {
-		return MovieTopListViewHolder(view, delegate)
-	}
+    override fun viewHolder(layout: Int, view: View): BaseViewHolder {
+        return MovieTopListViewHolder(view, delegate)
+    }
 }

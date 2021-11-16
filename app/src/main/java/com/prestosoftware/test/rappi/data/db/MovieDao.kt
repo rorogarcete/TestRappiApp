@@ -1,7 +1,11 @@
 package com.prestosoftware.test.rappi.data.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Query
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Update
 import com.prestosoftware.test.rappi.models.entity.Movie
 
 /**

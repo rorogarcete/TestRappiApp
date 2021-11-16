@@ -10,20 +10,20 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-  AndroidInjectionModule::class,
-  ComposeModule::class,
-  ActivityModule::class,
-  ViewModelModule::class,
-  NetworkModule::class,
-  PersistenceModule::class])
+    AndroidInjectionModule::class,
+    ComposeModule::class,
+    ActivityModule::class,
+    ViewModelModule::class,
+    NetworkModule::class,
+    PersistenceModule::class])
 interface AppComponent : AndroidInjector<DaggerApplication> {
-  @Component.Builder
-  interface Builder {
-    @BindsInstance
-    fun application(application: Application): Builder
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
 
-    fun build(): AppComponent
-  }
+        fun build(): AppComponent
+    }
 
-  override fun inject(instance: DaggerApplication)
+    override fun inject(instance: DaggerApplication)
 }

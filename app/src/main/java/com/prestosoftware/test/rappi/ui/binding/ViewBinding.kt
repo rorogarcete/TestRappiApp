@@ -1,6 +1,5 @@
 package com.prestosoftware.test.rappi.ui.binding
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,24 +17,23 @@ import com.prestosoftware.test.rappi.util.extension.visible
 
 @BindingAdapter("visibilityByResource")
 fun bindVisibilityByResource(view: View, resource: Resource<List<Any>>?) {
-  view.bindResource(resource) {
-    if (resource?.data?.isNotEmpty()!!) {
-      view.visible()
+    view.bindResource(resource) {
+        if (resource?.data?.isNotEmpty()!!) {
+            view.visible()
+        }
     }
-  }
 }
 
 @BindingAdapter("mapKeywordList")
 fun bindMapKeywordList(view: TagContainerLayout, resource: Resource<List<Keyword>>?) {
-  view.bindResource(resource) {
-    view.tags = KeywordListMapper.mapToStringList(resource?.data!!)
-    if (resource.data.isNotEmpty()) {
-      view.visible()
+    view.bindResource(resource) {
+        view.tags = KeywordListMapper.mapToStringList(resource?.data!!)
+        if (resource.data.isNotEmpty()) {
+          view.visible()
+        }
     }
-  }
 }
 
-@SuppressLint("SetTextI18n")
 @BindingAdapter("bindReleaseDate")
 fun bindReleaseDate(view: TextView, movie: Movie) {
   view.text = "Release Date : ${movie.release_date}"
@@ -43,13 +41,13 @@ fun bindReleaseDate(view: TextView, movie: Movie) {
 
 @BindingAdapter("bindBackDrop")
 fun bindBackDrop(view: ImageView, movie: Movie) {
-  if (movie.backdrop_path != null) {
-    Glide.with(view.context).load(Api.getBackdropPath(movie.backdrop_path))
-      .listener(view.requestGlideListener())
-      .into(view)
-  } else {
-    Glide.with(view.context).load(Api.getBackdropPath(movie.poster_path!!))
-      .listener(view.requestGlideListener())
-      .into(view)
-  }
+    if (movie.backdrop_path != null) {
+        Glide.with(view.context).load(Api.getBackdropPath(movie.backdrop_path))
+          .listener(view.requestGlideListener())
+          .into(view)
+    } else {
+        Glide.with(view.context).load(Api.getBackdropPath(movie.poster_path!!))
+          .listener(view.requestGlideListener())
+          .into(view)
+    }
 }

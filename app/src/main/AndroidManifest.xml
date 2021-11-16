@@ -13,18 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.prestosoftware.test.reign.ui.detail.PostDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.prestosoftware.test.reign.ui.post.PostActivity"
-            android:label="@string/post_hits">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".rappi.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

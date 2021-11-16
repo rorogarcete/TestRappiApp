@@ -14,7 +14,6 @@ import retrofit2.http.Query
  */
 interface MovieService {
 
-    // Get Movies Popular
     @GET("movie/{category}")
     fun getMoviesByCategory(@Path("category") category: String, @Query("page") page: Int): LiveData<ApiResponse<MovieListResponse>>
 
